@@ -19,8 +19,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@ToString(exclude = "elves")
-@EqualsAndHashCode(exclude = "elves")
+@ToString(exclude = "elfy")
+@EqualsAndHashCode(exclude = "elfy")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -39,6 +39,6 @@ public class Forest implements Serializable {
     private int treeNumber;
 
     @OneToMany(mappedBy = "forest", orphanRemoval = true)
-    private List<Elf> elves;
+    private List<Elf> elfy;
 
 }
