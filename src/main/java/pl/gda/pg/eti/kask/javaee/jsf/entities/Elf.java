@@ -37,14 +37,14 @@ public class Elf implements Serializable {
     private Integer id;
     
     @Column
-    private String name;
+    private String imie;
     
     @Column(name = "liczba_strzal")
-    private int arrowNumber;
+    private int liczbaStrzal;
     
     @Enumerated(EnumType.STRING)
     @Column(name = "rodzaj_luku")
-    private RodzajLuku bowCategory;
+    private RodzajLuku rodzajLuku;
     
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="las_id")

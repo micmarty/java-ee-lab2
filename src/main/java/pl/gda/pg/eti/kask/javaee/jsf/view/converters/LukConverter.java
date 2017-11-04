@@ -9,7 +9,7 @@ import pl.gda.pg.eti.kask.javaee.jsf.entities.Elf.RodzajLuku;
 
 @ManagedBean
 @RequestScoped
-public class BowCategoryConverter implements Converter {
+public class LukConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {

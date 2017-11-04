@@ -17,16 +17,16 @@
             <h:panelGrid columns="3" styleClass="tabela">
                 <h:outputLabel value="#{msg.name}: " for="name"/>
                 <h:inputText id="name"
-                             value="#{editElf.elf.name}"
+                             value="#{editElf.elf.imie}"
                              validator="#{elfNameValidator.validate}"/>
                 <h:message for="name"/>
                 
                 <h:outputLabel value="#{msg.arrowNumber}:" for="arrows"/>
-                <h:inputText id="arrows" value="#{editElf.elf.arrowNumber}" />
+                <h:inputText id="arrows" value="#{editElf.elf.liczbaStrzal}" />
                 <h:message for="arrows"/>
                 
                 <h:outputLabel value="#{msg.bowCategory}:" for="bow"/>
-                <h:selectOneListbox id="bow" value="#{editElf.elf.bowCategory}">
+                <h:selectOneListbox id="bow" value="#{editElf.elf.rodzajLuku}">
                     <f:selectItems value="#{editElf.bowCategoriesAsSelectItems}"/>
                 </h:selectOneListbox>
                 <h:message for="bow"/>

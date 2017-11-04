@@ -13,16 +13,16 @@
     <h:body>
         <h:panelGrid columns="2">
             <h:outputLabel value="#{msg.name}" for="name"/>
-            <h:outputText id="name" value="#{viewElf.elf.name}"/>
+            <h:outputText id="name" value="#{viewElf.elf.imie}"/>
             
             <h:outputLabel value="#{msg.arrowNumber}:" for="arrows"/>
-            <h:outputText id="arrows" value="#{viewElf.elf.arrowNumber}"/>
+            <h:outputText id="arrows" value="#{viewElf.elf.liczbaStrzal}"/>
             
             <h:outputLabel value="#{msg.bowCategory}:" for="bow"/>
-            <h:outputText id="bow" value="#{viewElf.elf.bowCategory}"/>
+            <h:outputText id="bow" value="#{viewElf.elf.rodzajLuku}"/>
             
             <h:outputLabel value="#{msg.forest} id:" for="forest"/>
-            <h:outputText id="forest" value="#{viewElf.elf.forest.id}"/>
+            <h:outputText id="forest" value="#{viewElf.elf.las.id}"/>
         </h:panelGrid>
         <h:button value="#{msg.back}" outcome="list_elves.xhtml"/>
     </h:body>

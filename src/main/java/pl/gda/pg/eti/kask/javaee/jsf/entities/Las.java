@@ -36,7 +36,7 @@ public class Las implements Serializable {
     private Integer id;
 
     @Column(name = "ilosc_drzew")
-    private int treeNumber;
+    private int liczbaDrzew;
 
     @OneToMany(mappedBy = "las", orphanRemoval = true)
     private List<Elf> elfy;
