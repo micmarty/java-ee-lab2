@@ -7,11 +7,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import pl.gda.pg.eti.kask.javaee.jsf.entities.Elf;
-import pl.gda.pg.eti.kask.javaee.jsf.entities.Forest;
+import pl.gda.pg.eti.kask.javaee.jsf.entities.Las;
 
 @ViewScoped
 @ManagedBean
-public class ListForests implements Serializable {
+public class ListLasy implements Serializable {
 
     @ManagedProperty("#{elfService}")
     private ElfService elfService;
@@ -19,13 +19,13 @@ public class ListForests implements Serializable {
     public void setElfService(ElfService elfService) {
         this.elfService = elfService;
     }
-    private List<Forest> forests;
+    private List<Las> lasy;
     
-    public List<Forest> getForests() {
-        if (forests == null) {
-            forests = elfService.findAllLasy();
+    public List<Las> getLasy() {
+        if (lasy == null) {
+            lasy = elfService.findAllLasy();
         }
-        return forests;
+        return lasy;
     }
 
     public String removeElf(Elf elf) {
@@ -33,9 +33,9 @@ public class ListForests implements Serializable {
         return "list_elves?faces-redirect=true";
     }
     
-    public String removeForest(Forest forest) {
-        elfService.removeForest(forest);
-        forests.remove(forest);
+    public String removeLas(Las las) {
+        elfService.removeLas(las);
+        lasy.remove(las);
         return "list_elves?faces-redirect=true";
     }
 }

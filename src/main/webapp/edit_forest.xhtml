@@ -4,11 +4,11 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
     <f:metadata>
-        <f:viewParam name="forestId" value="#{editForest.forestId}" />
-        <f:event type="preRenderView" listener="#{editForest.init()}"/>
+        <f:viewParam name="forestId" value="#{editLas.lasId}" />
+        <f:event type="preRenderView" listener="#{editLas.init()}"/>
     </f:metadata>
     <h:head>
-        <title>#{editForest.forest}</title>
+        <title>#{editLas.las}</title>
     </h:head>
     <h:body>
 
@@ -17,12 +17,12 @@
             <h:panelGrid columns="3" styleClass="tabela">
                 
                 <h:outputLabel value="#{msg.treeNumber}:" for="trees"/>
-                <h:inputText id="trees" value="#{editForest.forest.treeNumber}" />
+                <h:inputText id="trees" value="#{editLas.las.treeNumber}" />
                 <h:message for="trees"/>
                 
             </h:panelGrid>
             
-            <h:commandButton value="#{msg.save}" action="#{editForest.saveForest()}"/>
+            <h:commandButton value="#{msg.save}" action="#{editLas.saveLas()}"/>
 
         </h:form>
         <h:button value="#{msg.back}" outcome="list_elves.xhtml"/>

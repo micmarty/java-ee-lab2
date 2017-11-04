@@ -8,7 +8,7 @@
         <h:outputStylesheet library="css" name="styles.css"  /> 
     </h:head>
     <h:body>
-        <h:dataTable value="#{listForests.forests}" var="forest"
+        <h:dataTable value="#{listLasy.lasy}" var="forest"
                      styleClass = "elfTable" 
                      headerClass = "elfTableHeader"
                      rowClasses = "forestRow">
@@ -64,7 +64,7 @@
                     <h:column>
                         <h:form>
                             <h:commandButton value="#{msg.remove}"
-                               action="#{listForests.removeElf(elf)}"/>
+                               action="#{listLasy.removeElf(elf)}"/>
                         </h:form>
                     </h:column>
                 </h:dataTable>
@@ -73,7 +73,7 @@
             <h:column>
                 <h:form>
                     <h:commandButton value="#{msg.remove}"
-                       action="#{listForests.removeForest(forest)}"/>
+                       action="#{listLasy.removeLas(forest)}"/>
                 </h:form>
             </h:column>
             

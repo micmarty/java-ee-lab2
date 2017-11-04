@@ -7,11 +7,11 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import pl.gda.pg.eti.kask.javaee.jsf.ElfService;
-import pl.gda.pg.eti.kask.javaee.jsf.entities.Forest;
+import pl.gda.pg.eti.kask.javaee.jsf.entities.Las;
 
 @ManagedBean
 @RequestScoped
-public class ForestConverter implements Converter {
+public class LasConverter implements Converter {
 
     @ManagedProperty("#{elfService}")
     private ElfService elfService;
@@ -25,7 +25,7 @@ public class ForestConverter implements Converter {
         if ("---".equals(value)) {
             return null;
         }
-        Forest v = elfService.findForest(Integer.parseInt(value));
+        Las v = elfService.findLas(Integer.parseInt(value));
         return v;
     }
 
@@ -34,7 +34,7 @@ public class ForestConverter implements Converter {
         if (value == null) {
             return "---";
         }
-        String s = ((Forest) value).getId() + "";
+        String s = ((Las) value).getId() + "";
         return s;
     }
 }

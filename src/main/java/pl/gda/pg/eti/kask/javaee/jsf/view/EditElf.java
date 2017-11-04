@@ -5,7 +5,7 @@ import lombok.Setter;
 import lombok.extern.java.Log;
 import pl.gda.pg.eti.kask.javaee.jsf.ElfService;
 import pl.gda.pg.eti.kask.javaee.jsf.entities.Elf;
-import pl.gda.pg.eti.kask.javaee.jsf.entities.Forest;
+import pl.gda.pg.eti.kask.javaee.jsf.entities.Las;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -39,21 +39,21 @@ public class EditElf implements Serializable {
     @Setter
     private Elf elf;
     
-    private List<SelectItem> forestsAsSelectItems;
+    private List<SelectItem> lasyAsSelectItems;
     private List<SelectItem> bowCategoriesAsSelectItems;
 
     public void setElfService(ElfService elfService) {
         this.elfService = elfService;
     }
     
-    public List<SelectItem> getForestsAsSelectItems() {
-        if (forestsAsSelectItems == null) {
-            forestsAsSelectItems = new ArrayList<>();
-            for (Forest forest : elfService.findAllLasy()) {
-                forestsAsSelectItems.add(new SelectItem(forest, Integer.toString(forest.getId())));
+    public List<SelectItem> getLasyAsSelectItems() {
+        if (lasyAsSelectItems == null) {
+            lasyAsSelectItems = new ArrayList<>();
+            for (Las las : elfService.findAllLasy()) {
+                lasyAsSelectItems.add(new SelectItem(las, Integer.toString(las.getId())));
             }
         }
-        return forestsAsSelectItems;
+        return lasyAsSelectItems;
     }
     
     public List<SelectItem> getBowCategoriesAsSelectItems() {

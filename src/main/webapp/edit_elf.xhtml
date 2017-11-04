@@ -32,8 +32,8 @@
                 <h:message for="bow"/>
                 
                 <h:outputLabel value="#{msg.forest} id:" for="forest"/>
-                <h:selectOneListbox id="forest" value="#{editElf.elf.forest}" converter="#{forestConverter}">
-                    <f:selectItems value="#{editElf.forestsAsSelectItems}"/>
+                <h:selectOneListbox id="forest" value="#{editElf.elf.las}" converter="#{lasConverter}">
+                    <f:selectItems value="#{editElf.lasyAsSelectItems}"/>
                 </h:selectOneListbox>
                 <h:message for="bow"/>
 

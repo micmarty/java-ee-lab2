@@ -39,16 +39,16 @@ public class Elf implements Serializable {
     @Column
     private String name;
     
-    @Column(name = "arrow_number")
+    @Column(name = "liczba_strzal")
     private int arrowNumber;
     
     @Enumerated(EnumType.STRING)
-    @Column(name = "bow_category")
+    @Column(name = "rodzaj_luku")
     private RodzajLuku bowCategory;
     
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="forest_id")
-    private Forest forest;
+    @JoinColumn(name="las_id")
+    private Las las;
 
     public enum RodzajLuku {
         DREWNIANY,

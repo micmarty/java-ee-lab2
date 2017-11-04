@@ -13,7 +13,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
 import lombok.extern.java.Log;
 import pl.gda.pg.eti.kask.javaee.jsf.entities.Elf;
-import pl.gda.pg.eti.kask.javaee.jsf.entities.Forest;
+import pl.gda.pg.eti.kask.javaee.jsf.entities.Las;
 
 
 @ManagedBean
@@ -73,19 +73,19 @@ public class ElfService implements Serializable {
         }
     }
     
-    public List<Forest> findAllLasy() {
-        return em.createNamedQuery("Forest.findAll").getResultList();
+    public List<Las> findAllLasy() {
+        return em.createNamedQuery("Las.findAll").getResultList();
     }
 
-    public Forest findForest(int id) {
-        return em.find(Forest.class, id);
+    public Las findLas(int id) {
+        return em.find(Las.class, id);
     }
     
-    public void removeForest(Forest forest) {
+    public void removeLas(Las las) {
         try {
             utx.begin();
-            forest = em.merge(forest);
-            em.remove(forest);
+            las = em.merge(las);
+            em.remove(las);
             utx.commit();
         } catch (Exception ex) {
             log.log(Level.SEVERE, null, ex);
@@ -97,13 +97,13 @@ public class ElfService implements Serializable {
         }
     }    
     
-    public void saveForest(Forest forest) {
+    public void saveLas(Las las) {
         try {
             utx.begin();
-            if (forest.getId() == null) {
-                em.persist(forest);
+            if (las.getId() == null) {
+                em.persist(las);
             } else {
-                em.merge(forest);
+                em.merge(las);
             }
             utx.commit();
         } catch (Exception ex) {
@@ -116,18 +116,18 @@ public class ElfService implements Serializable {
         }
     }
     
-//    public void saveForest(Forest forest) {
-//        if (forest.getId() == 0) {
-//            if(forests.isEmpty()) {
-//                forest.setId(1);
+//    public void saveLas(Las las) {
+//        if (las.getId() == 0) {
+//            if(lass.isEmpty()) {
+//                las.setId(1);
 //            } else {
-//                forest.setId(forests.lastKey() + 1);
+//                las.setId(lass.lastKey() + 1);
 //            }
 //        }
-//        forests.put(forest.getId(), forest);
+//        lass.put(las.getId(), las);
 //    }
     
-//    public void removeForest(Forest forest) {
-//        forests.remove(forest.getId());
+//    public void removeLas(Las las) {
+//        lass.remove(las.getId());
 //    }
 }

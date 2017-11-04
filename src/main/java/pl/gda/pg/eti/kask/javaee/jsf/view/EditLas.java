@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.java.Log;
 import pl.gda.pg.eti.kask.javaee.jsf.ElfService;
-import pl.gda.pg.eti.kask.javaee.jsf.entities.Forest;
+import pl.gda.pg.eti.kask.javaee.jsf.entities.Las;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -15,20 +15,20 @@ import java.io.Serializable;
 import java.util.logging.Level;
 
 @ViewScoped
-@ManagedBean(name = "editForest")
+@ManagedBean(name = "editLas")
 @Log
-public class EditForest implements Serializable {
+public class EditLas implements Serializable {
 
     @ManagedProperty("#{elfService}")
     private ElfService elfService;
 
     @Getter
     @Setter
-    private int forestId;
+    private int lasId;
 
     @Getter
     @Setter
-    private Forest forest;
+    private Las las;
 
 
     public void setElfService(ElfService elfService) {
@@ -36,12 +36,12 @@ public class EditForest implements Serializable {
     }
 
     public void init() {
-        if (forest == null && forestId != 0) {
-            forest = elfService.findForest(forestId);
-        } else if (forest == null && forestId == 0) {
-            forest = new Forest();
+        if (las == null && lasId != 0) {
+            las = elfService.findLas(lasId);
+        } else if (las == null && lasId == 0) {
+            las = new Las();
         }
-        if (forest == null) {
+        if (las == null) {
             try {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("error/404.xhtml");
             } catch (IOException ex) {
@@ -50,8 +50,8 @@ public class EditForest implements Serializable {
         }
     }
 
-    public String saveForest() {
-        elfService.saveForest(forest);
+    public String saveLas() {
+        elfService.saveLas(las);
         return "list_elves?faces-redirect=true";
     }
 }

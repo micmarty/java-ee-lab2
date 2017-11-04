@@ -26,19 +26,19 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-@Table(name = "forests")
-@NamedQuery(name = "Forest.findAll", query = "SELECT f FROM Forest f")
-public class Forest implements Serializable {
+@Table(name = "LASY")
+@NamedQuery(name = "Las.findAll", query = "SELECT f FROM Las f")
+public class Las implements Serializable {
 
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "tree_number")
+    @Column(name = "ilosc_drzew")
     private int treeNumber;
 
-    @OneToMany(mappedBy = "forest", orphanRemoval = true)
+    @OneToMany(mappedBy = "las", orphanRemoval = true)
     private List<Elf> elfy;
 
 }
