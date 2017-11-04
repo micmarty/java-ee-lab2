@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Elfy</title>
+        <h:outputStylesheet library="css" name="styles.css"  /> 
+    </h:head>
+    <h:body>
+        <h:dataTable value="#{listForests.forests}" var="forest"
+                     styleClass = "elfTable" 
+                     headerClass = "elfTableHeader"
+                     rowClasses = "forestRow">
+            <h:column>
+                <f:facet name="header">Las</f:facet>
+                <h:outputText value="#{forest.id}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">#{msg.treeNumber}</f:facet>
+                <h:outputText value="#{forest.treeNumber}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">#{msg.elves}</f:facet>
+                
+                <h:dataTable value="#{forest.elves}" var="elf" 
+                             styleClass = "elfTable" 
+                             headerClass = "elfTableHeader"
+                             rowClasses = "elfTableOddRow,elfTableEvenRow">
+                    <h:column>
+                        <f:facet name = "header">ID</f:facet>
+                        <h:outputText value="#{elf.id}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name = "header">#{msg.name}</f:facet>
+                        <h:outputText value="#{elf.name}" escape="true" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name = "header">#{msg.arrowNumber}</f:facet>
+                        <h:outputText value="#{elf.arrowNumber}" escape="true" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name = "header">#{msg.bowCategory}</f:facet>
+                        <h:outputText value="#{elf.bowCategory}" escape="true" />
+                    </h:column>
+
+                    <h:column>
+                        <h:button value="#{msg.view}" outcome="view_elf.xhtml">
+                            <f:param name="elfId" value="#{elf.id}" />
+                        </h:button>
+                    </h:column>
+
+                    <h:column>
+                        <h:button value="#{msg.edit}" outcome="edit_elf.xhtml">
+                            <f:param name="elfId" value="#{elf.id}" />
+                        </h:button>
+                    </h:column>
+
+                    <h:column>
+                        <h:form>
+                            <h:commandButton value="#{msg.remove}"
+                               action="#{listForests.removeElf(elf)}"/>
+                        </h:form>
+                    </h:column>
+                </h:dataTable>
+            </h:column>
+            
+            <h:column>
+                <h:form>
+                    <h:commandButton value="#{msg.remove}"
+                       action="#{listForests.removeForest(forest)}"/>
+                </h:form>
+            </h:column>
+            
+            <h:column>
+                <h:button value="#{msg.edit}" outcome="edit_forest.xhtml">
+                    <f:param name="forestId" value="#{forest.id}" />
+                </h:button>
+            </h:column>
+        </h:dataTable>
+        <h:button value="#{msg.new} #{msg.elf}" outcome="edit_elf.xhtml"/>
+        <h:button value="#{msg.new} #{msg.forest}" outcome="edit_forest.xhtml"/>
+    </h:body>
+</html>
