@@ -68,7 +68,7 @@
                                 </h:button>
                             </h:column>
 
-                            <!-- Usun las -->
+                            <!-- Usun elfa -->
                             <h:column>
                                 <h:form>
                                     <h:commandButton value="Usuń" action="#{listLasy.removeElf(elf)}" />
@@ -81,82 +81,6 @@
             </ul>
             <h:button value="Nowy las" outcome="edit_las.xhtml" />
             <h:button value="Nowy elf" outcome="edit_elf.xhtml" />
-
-        <!--<h:dataTable value="#{listLasy.lasy}" var="forest"-->
-                     <!--styleClass = "elfTable"-->
-                     <!--headerClass = "elfTableHeader"-->
-                     <!--rowClasses = "forestRow">-->
-            <!--<h:column>-->
-                <!--<f:facet name="header">Las</f:facet>-->
-                <!--<h:outputText value="#{forest.id}" />-->
-            <!--</h:column>-->
-
-            <!--<h:column>-->
-                <!--<f:facet name="header">#{msg.treeNumber}</f:facet>-->
-                <!--<h:outputText value="#{forest.treeNumber}" />-->
-            <!--</h:column>-->
-
-            <!--<h:column>-->
-                <!--<f:facet name="header">#{msg.elves}</f:facet>-->
-
-                <!--<h:dataTable value="#{forest.elfy}" var="elf"-->
-                             <!--styleClass = "elfTable"-->
-                             <!--headerClass = "elfTableHeader"-->
-                             <!--rowClasses = "elfTableOddRow,elfTableEvenRow">-->
-                    <!--<h:column>-->
-                        <!--<f:facet name = "header">ID</f:facet>-->
-                        <!--<h:outputText value="#{elf.id}" />-->
-                    <!--</h:column>-->
-
-                    <!--<h:column>-->
-                        <!--<f:facet name = "header">#{msg.name}</f:facet>-->
-                        <!--<h:outputText value="#{elf.name}" escape="true" />-->
-                    <!--</h:column>-->
-
-                    <!--<h:column>-->
-                        <!--<f:facet name = "header">#{msg.arrowNumber}</f:facet>-->
-                        <!--<h:outputText value="#{elf.arrowNumber}" escape="true" />-->
-                    <!--</h:column>-->
-
-                    <!--<h:column>-->
-                        <!--<f:facet name = "header">#{msg.bowCategory}</f:facet>-->
-                        <!--<h:outputText value="#{elf.bowCategory}" escape="true" />-->
-                    <!--</h:column>-->
-
-                    <!--<h:column>-->
-                        <!--<h:button value="#{msg.view}" outcome="view_elf.xhtml">-->
-                            <!--<f:param name="elfId" value="#{elf.id}" />-->
-                        <!--</h:button>-->
-                    <!--</h:column>-->
-
-                    <!--<h:column>-->
-                        <!--<h:button value="#{msg.edit}" outcome="edit_elf.xhtml">-->
-                            <!--<f:param name="elfId" value="#{elf.id}" />-->
-                        <!--</h:button>-->
-                    <!--</h:column>-->
-
-                    <!--<h:column>-->
-                        <!--<h:form>-->
-                            <!--<h:commandButton value="#{msg.remove}"-->
-                               <!--action="#{listLasy.removeElf(elf)}"/>-->
-                        <!--</h:form>-->
-                    <!--</h:column>-->
-                <!--</h:dataTable>-->
-            <!--</h:column>-->
-
-            <!--<h:column>-->
-                <!--<h:form>-->
-                    <!--<h:commandButton value="#{msg.remove}"-->
-                       <!--action="#{listLasy.removeLas(forest)}"/>-->
-                <!--</h:form>-->
-            <!--</h:column>-->
-
-            <!--<h:column>-->
-                <!--<h:button value="#{msg.edit}" outcome="edit_forest.xhtml">-->
-                    <!--<f:param name="forestId" value="#{forest.id}" />-->
-                <!--</h:button>-->
-            <!--</h:column>-->
-        <!--</h:dataTable>-->
         </ui:composition>
     </h:body>
 </html>
